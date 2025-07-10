@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: white;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-top: 3rem;
+}
+
+.card {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 16px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.glow-text {
+  color: #fff700;
+  text-shadow: 0 0 5px #fff700, 0 0 10px #ff6, 0 0 20px #ff0;
+}
+
+select, input {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: none;
+  background: #111;
+  color: #fff;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  background: linear-gradient(45deg, #f39c12, #f1c40f);
+  color: #000;
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.device-card {
+  background: #1c1c1c;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.delete-button {
+  background: #ff4d4d;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.calculate-button {
+  background: #ffdd57;
+  color: #000;
+}
+/* Background Gradient with Electric Pulse Effect */
+.electric-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 20%, transparent 80%),
+              linear-gradient(-45deg, #0f2027, #203a43, #2c5364);
+  background-size: 400% 400%;
+  animation: electricBackground 12s ease infinite;
+}
+
+@keyframes electricBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom, #000000, #0a0a0a);
+  overflow-x: hidden;
+}
+
+/* Glowing Circuit Background */
+.electric-bg {
+  position: fixed;
+  z-index: -999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #001f33 0%, #000000 70%);
+  overflow: hidden;
+}
+
+.electric-lines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.transparenttextures.com/patterns/circuit-board.png');
+  background-repeat: repeat;
+  animation: pulse 6s infinite ease-in-out;
+  opacity: 0.05;
+  filter: hue-rotate(180deg);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.05;
+    filter: hue-rotate(180deg) brightness(1);
+  }
+  50% {
+    opacity: 0.15;
+    filter: hue-rotate(220deg) brightness(1.5);
+  }
+}
