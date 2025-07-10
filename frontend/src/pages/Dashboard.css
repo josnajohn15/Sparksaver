@@ -1,0 +1,156 @@
+/* Global Style */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom, #000000, #0a0a0a);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Animated Electric Background */
+.electric-effect-background {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #001f33 0%, #000000 70%);
+  overflow: hidden;
+}
+
+.electric-effect-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/circuit-board.png");
+  opacity: 0.05;
+  animation: pulseElectric 6s ease-in-out infinite;
+  filter: hue-rotate(180deg);
+}
+
+@keyframes pulseElectric {
+  0%, 100% {
+    opacity: 0.05;
+    filter: hue-rotate(180deg) brightness(1);
+  }
+  50% {
+    opacity: 0.15;
+    filter: hue-rotate(220deg) brightness(1.5);
+  }
+}
+
+/* Container Layout */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 3rem 1rem;
+}
+
+/* Card Styling */
+.card {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 16px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  animation: fadeIn 1s ease-in;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Inputs & Selects */
+select, input {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: none;
+  background: #111;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+}
+
+/* Buttons */
+button {
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  background: linear-gradient(45deg, #f39c12, #f1c40f);
+  color: #000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #f1c40f;
+}
+
+/* Saved Device Card */
+.device-card {
+  background: #1c1c1c;
+  color: #fff;
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Delete Button */
+.delete-button {
+  background: #ff4d4d;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* Calculate Button */
+.calculate-button {
+  background: #ffdd57;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Headings */
+h2, h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #fff700;
+  text-shadow: 0 0 5px #fff700, 0 0 10px #ff6, 0 0 20px #ff0;
+}
