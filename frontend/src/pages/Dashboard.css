@@ -1,23 +1,47 @@
-/* Global Style */
+/* Base Layout */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to bottom, #000000, #0a0a0a);
+  background: #000;
   color: white;
   overflow-x: hidden;
 }
+.logout-button {
+  background: linear-gradient(45deg, #ff4d4d, #ff1a1a);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.9rem;
+  box-shadow: 0 0 8px rgba(255, 50, 50, 0.4);
+  transition: transform 0.2s ease;
+}
 
-/* Animated Electric Background */
+.logout-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #ff1a1a;
+}
+.logout-container {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Electric BG */
 .electric-effect-background {
   position: fixed;
-  z-index: -1;
+  z-index: -2;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at center, #001f33 0%, #000000 70%);
-  overflow: hidden;
+  background: radial-gradient(circle at center, #001f33 0%, #000000 90%);
 }
 
 .electric-effect-background::before {
@@ -25,132 +49,141 @@ body {
   position: absolute;
   inset: 0;
   background-image: url("https://www.transparenttextures.com/patterns/circuit-board.png");
-  opacity: 0.05;
+  opacity: 0.03;
   animation: pulseElectric 6s ease-in-out infinite;
   filter: hue-rotate(180deg);
 }
 
-@keyframes pulseElectric {
-  0%, 100% {
-    opacity: 0.05;
-    filter: hue-rotate(180deg) brightness(1);
-  }
-  50% {
-    opacity: 0.15;
-    filter: hue-rotate(220deg) brightness(1.5);
-  }
+/* Title Glow + Flicker */
+.glow-text {
+  font-size: 2.5rem;
+  color: #f1c40f;
+  text-shadow: 0 0 8px #f1c40f, 0 0 20px #ff0, 0 0 40px #f1c40f;
 }
 
-/* Container Layout */
-.container {
+.flicker {
+  animation: flicker 2s infinite alternate;
+}
+
+@keyframes flicker {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.6; text-shadow: 0 0 6px #f1c40f; }
+  100% { opacity: 1; text-shadow: 0 0 14px #ff0; }
+}
+
+.glow-sub {
+  font-size: 1.1rem;
+  color: #ccc;
+  text-shadow: 0 0 3px #fff700;
+  margin-bottom: 1.5rem;
+}
+
+/* Divider Line */
+.neon-divider {
+  width: 100%;
+  height: 2px;
+  margin: 1rem auto 2rem;
+  background: linear-gradient(to right, transparent, #f1c40f, transparent);
+  box-shadow: 0 0 10px #f1c40f;
+}
+
+/* Card Grid */
+.dashboard-wrapper {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  min-height: 100vh;
-  padding: 3rem 1rem;
+  padding-top: 4rem;
 }
 
-/* Card Styling */
-.card {
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 16px;
+.dashboard-container {
+  max-width: 1080px;
+  width: 90%;
   padding: 2rem;
-  width: 100%;
-  max-width: 600px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-  animation: fadeIn 1s ease-in;
+  text-align: center;
 }
 
-/* Fade-in animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Neon Card */
+.feature-card {
+  padding: 2rem 1rem;
+  border-radius: 16px;
+  color: white;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  animation: fadeInUp 0.6s ease forwards;
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 12px #f1c40f, 0 0 20px #ff0;
+}
+
+@keyframes fadeInUp {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* Inputs & Selects */
-select, input {
-  width: 100%;
-  margin-top: 1rem;
-  padding: 0.6rem;
-  border-radius: 8px;
-  border: none;
-  background: #111;
-  color: #fff;
-  font-size: 1rem;
-  outline: none;
+.glow-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.6rem;
+  filter: drop-shadow(0 0 6px #f1c40f);
 }
 
-/* Buttons */
-button {
-  margin-top: 1rem;
-  padding: 0.6rem 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 1rem;
-  background: linear-gradient(45deg, #f39c12, #f1c40f);
-  color: #000;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px #f1c40f;
-}
-
-/* Saved Device Card */
-.device-card {
-  background: #1c1c1c;
-  color: #fff;
-  margin: 0.5rem 0;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  animation: slideIn 0.5s ease;
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(-20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* Delete Button */
-.delete-button {
-  background: #ff4d4d;
-  border: none;
-  padding: 4px 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  color: #fff;
-  font-size: 0.9rem;
-}
-
-/* Calculate Button */
-.calculate-button {
-  background: #ffdd57;
-  color: #000;
+.glow-label {
+  color: #f1c40f;
+  text-shadow: 0 0 5px #f1c40f;
   font-weight: bold;
 }
 
-/* Headings */
-h2, h3 {
+/* Footer */
+.dashboard-footer {
+  margin-top: 3rem;
+  font-size: 0.95rem;
+  color: #888;
   text-align: center;
-  margin-bottom: 1rem;
-  color: #fff700;
-  text-shadow: 0 0 5px #fff700, 0 0 10px #ff6, 0 0 20px #ff0;
+}
+
+.footer-text .highlight {
+  color: #f1c40f;
+  text-shadow: 0 0 6px #f1c40f;
+}
+
+/* Bottom Glow */
+.bottom-glow {
+  width: 100%;
+  height: 20px;
+  margin-top: 3rem;
+  background: radial-gradient(circle, #f1c40f33 0%, transparent 80%);
+  filter: blur(20px);
+  opacity: 0.5;
+}
+
+/* Glow Animation */
+@keyframes pulseElectric {
+  0%, 100% {
+    opacity: 0.04;
+    filter: hue-rotate(180deg) brightness(1);
+  }
+  50% {
+    opacity: 0.1;
+    filter: hue-rotate(220deg) brightness(1.5);
+  }
 }
