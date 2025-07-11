@@ -113,7 +113,7 @@ const Result = () => {
           </PieChart>
         </ResponsiveContainer>
 
-        <button onClick={() => navigate("/")} className="back-btn">🔙 Start Over</button>
+        <button onClick={() => navigate("/dashboard")} className="back-btn">🔙 Back</button>
       </div>
     </div>
   );

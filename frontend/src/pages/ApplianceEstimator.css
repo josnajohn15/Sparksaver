@@ -1,0 +1,55 @@
+.estimator-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #000000, #0a0a0a);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem;
+}
+
+.load-btn, .classify-btn {
+  margin-top: 1rem;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #f39c12, #f1c40f);
+  cursor: pointer;
+  color: black;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.load-btn:hover, .classify-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #f1c40f;
+}
+
+input[type="file"] {
+  margin-top: 2rem;
+  background: #111;
+  padding: 0.5rem;
+  border-radius: 6px;
+  color: white;
+}
+
+#estimator-image {
+  margin-top: 1.5rem;
+  max-width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.result {
+  margin-top: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 90%;
+}
+
+.error {
+  color: #ff4d4d;
+  font-weight: bold;
+}
